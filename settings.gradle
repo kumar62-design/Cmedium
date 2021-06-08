@@ -1,0 +1,3 @@
+rootProject.name = "Cmedium"
+include ':app'
+include ':api'
