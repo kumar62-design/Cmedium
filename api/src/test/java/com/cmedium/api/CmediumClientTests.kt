@@ -1,6 +1,5 @@
 package com.cmedium.api
 
-import com.example.api.CmediumClient
 import com.example.api.models.entities.UserCreds
 import com.example.api.models.requests.SignupRequest
 import junit.framework.Assert.assertEquals
@@ -17,7 +16,7 @@ class CmediumClientTests {
     fun`GET articles`(){
 
         runBlocking {
-            val articles = cmediumClient.api.getArticles()
+            val articles = cmediumClient.publicApi.getArticles()
             assertNotNull(articles.body()?.articles)
         }
     }
@@ -26,7 +25,7 @@ class CmediumClientTests {
     fun`GET articles by author`(){
 
         runBlocking {
-            val articles = cmediumClient.api.getArticles(author = "444")
+            val articles = cmediumClient.publicApi.getArticles(author = "444")
             assertNotNull(articles.body()?.articles)
         }
     }
@@ -34,7 +33,7 @@ class CmediumClientTests {
     fun`GET articles by tags`(){
 
         runBlocking {
-            val articles = cmediumClient.api.getArticles(tag = "dragons")
+            val articles = cmediumClient.publicApi.getArticles(tag = "dragons")
             assertNotNull(articles.body()?.articles)
         }
     }
@@ -48,7 +47,7 @@ class CmediumClientTests {
             )
 
         runBlocking {
-            val resp = cmediumClient.api.signupUser(SignupRequest(userCreds))
+            val resp = cmediumClient.publicApi.signupUser(SignupRequest(userCreds))
             assertEquals(userCreds.username,resp.body()?.user?.username)
         }
     }

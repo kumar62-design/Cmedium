@@ -1,11 +1,12 @@
 package com.example.cmedium.data
 
 import com.example.api.CmediumClient
-import com.example.api.services.CmediumAPI
 
 object ArticlesRepo {
 
-    val api = CmediumClient().api
+    val api = CmediumClient.publicApi
+    val authApi = CmediumClient.authApi
 
     suspend fun getGlobalFeed() = api.getArticles()
+    suspend fun getMyFeed() = api.getFeedArticles()
 }

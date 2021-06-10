@@ -28,6 +28,9 @@ interface CmediumAPI {
         @Query("tag") tag : String? = null
    ): Response<ArticlesResponse>
 
+    @GET("articles/feed")
+    suspend fun getFeedArticles(): Response<ArticlesResponse>
+
    @GET("article/{slug}")
    suspend fun getArticlesBySlug(
        @Path("slug") slug:String

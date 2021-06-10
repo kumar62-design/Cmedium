@@ -16,12 +16,24 @@ class FeedViewModel : ViewModel() {
 
     val feed: LiveData<List<Article>> = _feed
 
-    fun fetchGlobalFeed(){
+    // This is global feed
+    fun fetchGlobalFeed() {
         viewModelScope.launch {
-           ArticlesRepo.getGlobalFeed().body()?.let {
-               _feed.postValue(it.articles)
-               Log.d("Feed","feed fetched ${it.articlesCount}")
-           }
+            ArticlesRepo.getGlobalFeed().body()?.let {
+                _feed.postValue(it.articles)
+                Log.d("Feed", "feed fetched ${it.articlesCount}")
+            }
         }
     }
+
+
+       // This is for my feed
+        fun fetchMyFeed() {
+            viewModelScope.launch {
+                ArticlesRepo.getMyFeed().body()?.let {
+                    _feed.postValue(it.articles)
+                    Log.d("Feed", "feed fetched ${it.articlesCount}")
+                }
+            }
+        }
 }

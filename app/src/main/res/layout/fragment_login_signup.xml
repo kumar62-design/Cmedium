@@ -8,6 +8,15 @@
     android:layout_gravity="center">
 
     <EditText
+        android:inputType="text"
+        android:textAlignment="center"
+        android:hint="username"
+        android:id="@+id/usernameEditText"
+        android:ems="15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
         android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:hint="email"
@@ -27,7 +36,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:text="Login"
-        android:id="@+id/loginButton"
+        android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
